@@ -194,17 +194,17 @@
 	
 	<xsl:template match="v3:physicalDescription/v3:extent">
 		<!--
-                        <pages> is an integer field in EPrints, but some non-textual content types have non-numeric extents,
-                        use <pagerange> for these
-                -->
-                <xsl:choose>
-                        <xsl:when test="translate(.,'0123456789','') != ''">
-                                <pagerange><xsl:value-of select="."/></pagerange>
-                        </xsl:when>
-                        <xsl:otherwise>
-                                <pages><xsl:value-of select="."/></pages>
-                        </xsl:otherwise>
-                </xsl:choose>
+			<pages> is an integer field in EPrints, but some non-textual content types have non-numeric extents,
+			use <pagerange> for these
+		-->
+		<xsl:choose>
+			<xsl:when test="translate(.,'0123456789','') != ''">
+				<pagerange><xsl:value-of select="."/></pagerange>
+			</xsl:when>
+			<xsl:otherwise>
+				<pages><xsl:value-of select="."/></pages>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 	
 	<xsl:template match="v3:relatedItem[@type='host']/v3:identifier[@type='issn'][1]">
